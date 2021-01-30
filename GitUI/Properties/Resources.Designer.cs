@@ -69,6 +69,16 @@ namespace GitUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Alien {
+            get {
+                object obj = ResourceManager.GetObject("Alien", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_refresh {
             get {
                 object obj = ResourceManager.GetObject("arrow_refresh", resourceCulture);
@@ -160,18 +170,23 @@ namespace GitUI.Properties {
         ///   Looks up a localized string similar to Changelog
         ///=========
         ///
-        ///### [Version 2.50.02] (06 September 2017)
+        ///### Version 2.60 (30 January 2021)
         ///
-        ///#### Features: 
-        ///* Remote repositories modal defaults to inactive repo - Issue [3861]
-        ///* Allow cherry-picking multiple commits from FormBrowse menu - PR [3852]
+        ///#### Features:
+        ///- git reset --soft HEAD~1
+        ///- git fetch origin --prune
+        ///- git gc --aggressive --prune
+        ///- git submodule update --remote --force
         ///
-        ///#### Fixes: 
-        ///* Clicking Commit causes a crash - Issue [3827]
-        ///* 2.50.01 Quoting issues on git checkout command - Issue [3969]
-        ///* Can&apos;t delete index.lock because it is being used by another process. - Issue [3902]
-        ///* Missing Newtonsoft.Json on startup exception - Issue [3879]
-        ///*  [rest of string was truncated]&quot;;.
+        ///
+        ///### [Version 2.51.05] (2 September 2018)
+        ///
+        ///#### Fixes:
+        ///* Git config log.showSignature breaks revision grid - Issue [5179]
+        ///
+        ///#### Fixes (Mono specific):
+        ///* Settings causes crash under linux/mono - Issue [5311]
+        ///* Git Extension crashes when trying to access settings page in Ubuntu 16.04 - Issue [5187] [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ChangeLog {
             get {
@@ -1061,7 +1076,7 @@ namespace GitUI.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
@@ -1071,7 +1086,7 @@ namespace GitUI.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>

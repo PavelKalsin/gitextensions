@@ -1202,6 +1202,9 @@
       <DependentUpon>FormManageWorktree.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormRemoteProcess.resx">
+      <DependentUpon>FormRemoteProcess.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HelperDialogs\FormBuildServerCredentials.resx">
       <DependentUpon>FormBuildServerCredentials.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -1703,6 +1706,7 @@
     <None Include="Resources\Icons\77.png" />
     <None Include="Resources\Icons\82.png" />
     <None Include="Resources\Icons\Added.png" />
+    <None Include="Resources\Icons\Alien.png" />
     <None Include="Resources\Icons\arrow_refresh.png" />
     <None Include="Resources\Icons\arrow_refresh_dirty.png" />
     <None Include="Resources\Icons\bash.png" />
@@ -1908,6 +1912,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Icons\Alien.png" />
     <Content Include="Resources\Icons\commit_error.png" />
     <Content Include="Resources\Icons\commit_ok.png" />
     <Content Include="Resources\Icons\commit_warning.png" />

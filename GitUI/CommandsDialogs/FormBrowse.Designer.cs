@@ -51,6 +51,7 @@ namespace GitUI.CommandsDialogs
             this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripRevisionFilterLabel = new System.Windows.Forms.ToolStripLabel();
             this.toggleSplitViewLayout = new System.Windows.Forms.ToolStripButton();
+            this.softReset = new ToolStripButton();
             this.toolStripRevisionFilterTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripRevisionFilterDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.ShowFirstParent = new System.Windows.Forms.ToolStripButton();
@@ -230,6 +231,7 @@ namespace GitUI.CommandsDialogs
             this.toolStripSeparator19,
             this.toolStripRevisionFilterLabel,
             this.toggleSplitViewLayout,
+            this.softReset,
             this.toolStripRevisionFilterTextBox,
             this.toolStripRevisionFilterDropDownButton,
             this.ShowFirstParent});
@@ -515,6 +517,17 @@ namespace GitUI.CommandsDialogs
             this.toggleSplitViewLayout.Size = new System.Drawing.Size(23, 22);
             this.toggleSplitViewLayout.ToolTipText = "Toggle split view layout";
             this.toggleSplitViewLayout.Click += new System.EventHandler(this.toggleSplitViewLayout_Click);
+            // 
+            // softReset
+            // 
+            this.softReset.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.softReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.softReset.Image = global::GitUI.Properties.Resources.Alien;
+            this.softReset.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.softReset.Name = "softReset";
+            this.softReset.Size = new System.Drawing.Size(23, 22);
+            this.softReset.ToolTipText = "Soft Reset";
+            this.softReset.Click += new System.EventHandler(this.softReset_Click);
             // 
             // toolStripRevisionFilterTextBox
             // 
@@ -1673,6 +1686,7 @@ namespace GitUI.CommandsDialogs
         private ToolStripStatusLabel toolStripStatusLabel1;
         private ToolStripSplitButton branchSelect;
         private ToolStripButton toggleSplitViewLayout;
+        private ToolStripButton softReset;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem openToolStripMenuItem;
         private ToolStripMenuItem closeToolStripMenuItem;

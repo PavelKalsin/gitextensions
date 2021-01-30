@@ -1906,7 +1906,8 @@ namespace GitUI.CommandsDialogs
             RotateApplicationIcon,
             CloseRepository,
             Stash,
-            StashPop
+            StashPop,
+            SoftReset
         }
 
         private void AddNotes()
@@ -1951,6 +1952,7 @@ namespace GitUI.CommandsDialogs
                 case Commands.CloseRepository: CloseToolStripMenuItemClick(null, null); break;
                 case Commands.Stash: UICommands.StashSave(this, AppSettings.IncludeUntrackedFilesInManualStash); break;
                 case Commands.StashPop: UICommands.StashPop(this); break;
+                case Commands.SoftReset: UICommands.SoftReset(this); break;
                 default: return base.ExecuteCommand(cmd);
             }
 
@@ -1967,6 +1969,11 @@ namespace GitUI.CommandsDialogs
         private void toggleSplitViewLayout_Click(object sender, EventArgs e)
         {
             EnabledSplitViewLayout(MainSplitContainer.Panel2Collapsed);
+        }
+
+        private void softReset_Click(object sender, EventArgs e)
+        {
+            ExecuteCommand(Commands.SoftReset);
         }
 
         private void EnabledSplitViewLayout(bool enabled)
@@ -2186,7 +2193,7 @@ namespace GitUI.CommandsDialogs
             RefreshPullIcon();
             bool pullCompelted;
 
-            UICommands.StartPullDialog(this, true, out pullCompelted, true);
+            UICommands.StartPullDialog(this, pullOnShow: true, pullCompleted: out pullCompelted, fetchAll: true);
 
             //restore AppSettings.FormPullAction value
             if (!AppSettings.SetNextPullActionAsDefault)

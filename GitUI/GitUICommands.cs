@@ -360,6 +360,19 @@ namespace GitUI
             return DoActionOnRepo(owner, true, true, null, null, action);
         }
 
+        public bool SoftReset(IWin32Window owner)
+        {
+            Func<bool> action = () =>
+            {
+                FormProcess.ShowDialog(owner, Module, "reset --soft HEAD~1");
+                MergeConflictHandler.HandleMergeConflicts(this, owner, offerCommit: false, offerUpdateSubmodules: false);
+                return true;
+            };
+
+            // TODO: Refresh UI after reset
+            return DoActionOnRepo(owner, requiresValidWorkingDir: true, changesRepo: true, preEvent: null, postEvent: null, action: action);
+        }
+
         /// <summary>Creates and checks out a new branch starting from the commit at which the stash was originally created.
         /// Applies the changes recorded in the stash to the new working directory and index.</summary>
         public bool StashBranch(IWin32Window owner, string branchName, string stash = null)
@@ -492,7 +505,7 @@ namespace GitUI
 
         public bool StartCheckoutBranch(IWin32Window owner, string branch, bool remote, string[] containRevisons)
         {
-            return DoActionOnRepo(owner, true, true, PreCheckoutBranch, PostCheckoutBranch, () =>
+            return DoActionOnRepo(owner, requiresValidWorkingDir: true, changesRepo: true, preEvent: PreCheckoutBranch, postEvent: PostCheckoutBranch, action: () =>
             {
                 using (var form = new FormCheckoutBranch(this, branch, remote, containRevisons))
                     return form.DoDefaultActionOrShow(owner) != DialogResult.Cancel;
@@ -505,9 +518,9 @@ namespace GitUI
             return StartCheckoutBranch(owner, branch, remote, null);
         }
 
-        public bool StartCheckoutBranch(IWin32Window owner, string[] containRevisons)
+        public bool StartCheckoutBranch(IWin32Window owner, string[] containRevisions)
         {
-            return StartCheckoutBranch(owner, "", false, containRevisons);
+            return StartCheckoutBranch(owner, branch: "", remote: false, containRevisons: containRevisions);
         }
 
         public bool StartCheckoutBranch(IWin32Window owner)
@@ -831,7 +844,7 @@ namespace GitUI
                 }
             };
 
-            bool done = DoActionOnRepo(owner, true, true, PrePull, PostPull, action);
+            bool done = DoActionOnRepo(owner, requiresValidWorkingDir: true, changesRepo: true, preEvent: PrePull, postEvent: PostPull, action: action);
 
             pullCompleted = pulled;
 
