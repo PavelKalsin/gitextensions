@@ -350,7 +350,7 @@ namespace GitUI.CommandsDialogs
                                                         _notOnBranchMainInstruction.Text,
                                                         _notOnBranch.Text,
                                                         _notOnBranchButtons.Text,
-                                                        true);
+                                                        ShowCancelButton: true);
                 switch (idx)
                 {
                     case 0:

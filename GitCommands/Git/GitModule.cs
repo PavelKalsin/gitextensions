@@ -1668,14 +1668,16 @@ namespace GitCommands
 
         public string FetchCmd(string remote, string remoteBranch, string localBranch, bool? fetchTags = false, bool isUnshallow = false, bool prune = false)
         {
-            var progressOption = "";
+            /*var progressOption = "";
             if (GitCommandHelpers.VersionInUse.FetchCanAskForProgress)
                 progressOption = "--progress ";
 
             if (string.IsNullOrEmpty(remote) && string.IsNullOrEmpty(remoteBranch) && string.IsNullOrEmpty(localBranch))
                 return "fetch " + progressOption;
 
-            return "fetch " + progressOption + GetFetchArgs(remote, remoteBranch, localBranch, fetchTags, isUnshallow, prune);
+            return "fetch " + progressOption + GetFetchArgs(remote, remoteBranch, localBranch, fetchTags, isUnshallow, prune);*/
+
+            return "fetch origin --prune --prune-tags --progress";
         }
 
         public string PullCmd(string remote, string remoteBranch, bool rebase, bool? fetchTags = false, bool isUnshallow = false, bool prune = false)

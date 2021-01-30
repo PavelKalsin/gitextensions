@@ -2259,7 +2259,7 @@ Do you want to abort and remove it from the recent repositories list?</source>
         <target />
       </trans-unit>
       <trans-unit id="fetchAllToolStripMenuItem.Text">
-        <source>Fetch all</source>
+        <source>Fetch all | git fetch origin --prune --prune-tags --progress</source>
         <target />
       </trans-unit>
       <trans-unit id="fetchToolStripMenuItem.Text">
