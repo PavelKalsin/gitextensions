@@ -1,6 +1,15 @@
 Changelog
 =========
 
+### Version 2.60 (30 January 2021)
+
+#### Features:
+- git reset --soft HEAD~1
+- git fetch origin --prune
+- git gc --aggressive --prune
+- git submodule update --remote --force
+
+
 ### [Version 2.51.05] (2 September 2018)
 
 #### Fixes:
